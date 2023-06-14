@@ -2,6 +2,7 @@ const path = require('path');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
 
  module.exports = {
+   mode: 'development',
    entry: {
      index: './src/index.js',
      print: './src/print.js',
@@ -9,6 +10,7 @@ const path = require('path');
    plugins: [
      new HtmlWebpackPlugin({
        title: 'Output Management',
+       template: './src/index.html',
      }),
    ],
    output: {
@@ -16,4 +18,12 @@ const path = require('path');
      path: path.resolve(__dirname, 'dist'),
     clean: true,
    },
+   module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
  };

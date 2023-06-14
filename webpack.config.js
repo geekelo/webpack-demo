@@ -7,6 +7,10 @@ const path = require('path');
      index: './src/index.js',
      print: './src/print.js',
    },
+   devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
    plugins: [
      new HtmlWebpackPlugin({
        title: 'Output Management',
@@ -25,5 +29,8 @@ const path = require('path');
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
  };

@@ -32,6 +32,19 @@ const path = require('path');
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'logo.png',
+              outputPath: 'media-library',
+              publicPath: 'media-library',
+            },
+          }  
+        ],
+      },
     ],
   },
   optimization: {
